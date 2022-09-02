@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="FetchPromesa.css">
+     
+    <title>Consulta de APIS</title>
+</head>
+<body >
+    <h1>Consulta de APIS</h1>
+    <button id="boton1"> API 1 </button>
+    <button id="boton2">API 2</button>
+    <img id="imagen">
+     <script>
+
+
+    document.getElementById('boton1').addEventListener('click', function(){
+        HacerFetch();
+        });
+    document.getElementById('boton2').addEventListener('click', function () {
+        hacerPeticion();
+    });
+    
+    function HacerFetch(){
+        fetch("https://picsum.photos/200/300")
+        .then(respuesta => document.getElementById('imagen').src=respuesta.url)
+        /*.then(datos => console.log(datos))*/
+        }
+
+    function hacerPeticion(){
+        fetch("http://shibe.online/api/shibes")
+        .then(respuesta => respuesta.json())
+        .then(datos => document.getElementById('imagen').src=datos)
+    }
+    </script> 
+
+</body>
+</html>
