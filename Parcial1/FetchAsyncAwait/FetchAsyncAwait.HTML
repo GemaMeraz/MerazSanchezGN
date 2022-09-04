@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color:rgb(190, 218, 190);">
+    <h1>Consulta de APIS utilizando async/await</h1>
+    <img id="imagen" >
+    <button id="boton" type="button" class="btn btn-primary" style="color: white; background-color: rgb(221, 170, 92);border-style:solid;font-size: 20px;"> API 1</button>
+    <button id="boton2" type="button" class="btn btn-primary" style="color: white; background-color: rgb(92, 163, 221);border-style:solid;font-size: 20px;"> API 2</button>
+       <script>
+       document.getElementById('boton').addEventListener('click',async function() {
+        let dato = await hacerPeticion();
+        console.log(dato);
+        document.getElementById('imagen').src=dato
+     });
+
+     document.getElementById('boton2').addEventListener('click',async function() {
+        let dato = await hacerPeticion2();
+        console.log(dato);
+        document.getElementById('imagen').src=dato
+    });
+
+     async function hacerPeticion() {
+        let respuesta =  await fetch("https://picsum.photos/200/300");
+                let datojson = await respuesta.url;
+                    return datojson
+    };
+    
+    async function hacerPeticion2() {
+        let respuesta =  await fetch("http://shibe.online/api/shibes");
+                let datojson2 = await respuesta.json();
+                    return datojson2
+    };
+    </script>
+</body>
+</html>
