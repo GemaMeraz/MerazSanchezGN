@@ -2,14 +2,23 @@ const express = require('express')
 const app = express()
 const cors=require('cors')
 const { query } = require('express')
-const path = require('path');
+var path = require('path');
+var fs = require('fs');
+var morgan = require('morgan');
 
-var publicPath = path.resolve(__dirname, 'static')
-app.use(express.static(publicPath));
+
+
+// var publicPath = path.resolve(__dirname, 'static')
+// app.use(express.static(publicPath));
 app.use(cors({origin:"http://localhost"}))
 app.use(express.text())
 app.use(express.json())
 
+var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
+app.use(morgan('combined', { stream: accessLogStream }))
+
+
+// app.use((req,res))
 
 app.get('/',(req,res)=>{
     res.sendFile('./static/index.html',{root:__dirname},(err)=>{console.log('Archivo enviado')})

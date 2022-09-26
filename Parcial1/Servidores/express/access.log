@@ -1,0 +1,7 @@
+::1 - - [26/Sep/2022:03:47:05 +0000] "GET / HTTP/1.1" 200 340 "-" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Mobile Safari/537.36"
+::1 - - [26/Sep/2022:03:47:05 +0000] "GET /PageError.css HTTP/1.1" 404 785 "http://localhost:8081/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Mobile Safari/537.36"
+::1 - - [26/Sep/2022:03:47:47 +0000] "GET / HTTP/1.1" 200 349 "-" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Mobile Safari/537.36"
+::1 - - [26/Sep/2022:03:57:35 +0000] "GET /u HTTP/1.1" 404 803 "-" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Mobile Safari/537.36"
+::1 - - [26/Sep/2022:03:57:45 +0000] "GET /8 HTTP/1.1" 404 803 "-" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Mobile Safari/537.36"
+::1 - - [26/Sep/2022:03:58:00 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"
+::1 - - [26/Sep/2022:03:58:06 +0000] "GET /l HTTP/1.1" 404 803 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"
