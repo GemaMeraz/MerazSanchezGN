@@ -5,6 +5,7 @@ const { query } = require('express')
 var path = require('path');
 var fs = require('fs');
 var morgan = require('morgan');
+const cadena = require('./cadena')
 
 
 
@@ -17,6 +18,13 @@ app.use(express.json())
 var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
 app.use(morgan('combined', { stream: accessLogStream }))
 
+app.use((req,res,next)=>{
+    console.log("Esta es una funcion del middleware")
+    next()
+},(req,res,next)=>{
+    console.log("Esta es una segunda funcion de middleware")
+    next()
+})
 
 // app.use((req,res))
 
@@ -26,11 +34,12 @@ app.get('/',(req,res)=>{
 
 // app.post('/',(req,res)=>{res.json({Usuario:'Gema'})})
 
+// post que utiliza un modulo que se creo en clase
 app.post('/texto',(req,res)=>{
     console.log(req.body)
-    let may = req.body.toUpperCase()
-    let sinespa= req.body.trim()
-    let longi = req.body.length
+   let may = cadena.pasarMayusculas(req.body);
+   let sinespa = cadena.quitarEspacios(req.body);
+   let longi = cadena.obtenerLongitud(req.body)
     res.json({mayusculas:may,
     sinespacios:sinespa,
 longitud:longi})
