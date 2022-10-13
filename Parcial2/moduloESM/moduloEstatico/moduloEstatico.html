@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="cadena">Cadenas</label>
+    <input id="cadena" type="text">
+    <button id="btn">Mayusculas</button>
+    
+   <br> <input id="resultado" type="text">
+    <button id="btn2">Sin espacios</button>
+
+    <script type="module">
+        import * as funciones from './moduloest.js'
+        document.getElementById("btn").addEventListener("click",function(){
+            let cadena= document.getElementById("cadena").value;
+            let cadenaMay= funciones.pasarMayusculas(cadena);
+            document.getElementById("resultado").value=cadenaMay
+        })
+
+        document.getElementById("btn2").addEventListener("click",function(){
+            let cadena= document.getElementById("cadena").value;
+            let cadenaespa= funciones.quitarEspacios(cadena);
+            document.getElementById("resultado").value=cadenaespa
+        })
+    </script>
+</body>
+</html>
