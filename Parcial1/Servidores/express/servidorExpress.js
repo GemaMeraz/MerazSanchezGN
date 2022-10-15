@@ -6,6 +6,7 @@ var path = require('path');
 var fs = require('fs');
 var morgan = require('morgan');
 const cadena = require('./cadena')
+const router = express.Router()
 
 
 
@@ -14,6 +15,15 @@ const cadena = require('./cadena')
 app.use(cors({origin:"http://localhost"}))
 app.use(express.text())
 app.use(express.json())
+app.use(router)
+
+router.route('./clientes')
+    .all((req,res,next)=>{console.log("Peticion a la ruta de clientes")})
+    .get((req,res,next)=>{console.log("Peticion a la ruta cliente");res.send("Regresando info")})
+    .put((req,res,next)=>{console.log("Peticion a cliente");res.send("Regresando info")})
+    
+
+
 
 var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
 app.use(morgan('combined', { stream: accessLogStream }))
@@ -25,8 +35,6 @@ app.use((req,res,next)=>{
     console.log("Esta es una segunda funcion de middleware")
     next()
 })
-
-// app.use((req,res))
 
 app.get('/',(req,res)=>{
     res.sendFile('./static/index.html',{root:__dirname},(err)=>{console.log('Archivo enviado')})

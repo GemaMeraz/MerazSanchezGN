@@ -3,5 +3,18 @@
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "morgan": "^1.10.0"
-  }
+  },
+  "name": "modulo_19100218",
+  "version": "1.0.0",
+  "description": "modulo",
+  "main": "cadena.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "gema meraz",
+  "license": "ISC"
 }
