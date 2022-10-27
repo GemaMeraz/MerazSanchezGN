@@ -3,11 +3,14 @@ const { query, json } = require('express')
 let json2xls=require('json2xls')
 let mysql = require('mysql')
 let fs=require('fs')
+const cors=require('cors')
+
 // const {dirname} = require('path')
 
 const app = express()
 app.use(express.text())
 app.use(express.json())
+app.use(cors({origin:"http://localhost"}))
 
 var con = mysql.createConnection({
     host:'localhost',
@@ -24,7 +27,7 @@ con.connect((err)=>{
 })
 
 //Consultar todos los productos
-app.get('/mostrarProductos', (req,res)=>{
+app.get('/mostrarProductos' ,(req,res)=>{
    
     con.query('SELECT * FROM producto', function(error,results, fields){
         res.send(results)
@@ -84,6 +87,6 @@ app.put('/modificarPoducto/:idProducto',(req,res)=>{
 
 app.listen(8084, ()=>{
     console.log('servidor express escuchando en puerto 8084')
-    console.log(__dirname)
-    console.log(__filename)
+    // console.log(__dirname)
+    // console.log(__filename)
 });
