@@ -1,0 +1,8 @@
+estudiante:
+    nombre: gema
+    apellido: Meraz
+    numero control: 1910018
+    semestre: 7
+    materia:
+      nombre: API REST
+      especialidad: Desarrollo de software
